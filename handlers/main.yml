@@ -1,0 +1,7 @@
+---
+# Restart the Nagios NRPE Server
+# Since RedHat based OS's and Debian based ones call the service
+# different names, we use a variable set in vars/{{ ansible_os_family }}.yml
+
+- name: restart nagios-nrpe-server
+  service: name="{{ nagios_nrpe_server_service }}" state=restarted

@@ -1,0 +1,4 @@
+---
+nagios_nrpe_server_bind_address: 127.0.0.1
+nagios_nrpe_server_port: 5666
+nagios_nrpe_server_allowed_hosts: 127.0.0.1

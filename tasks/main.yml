@@ -1,0 +1,42 @@
+---
+# Nagios NRPE Server roles by Mooash
+
+# Include variables at the start so they're in scope
+- name: Include OS-Specific variables
+  include_vars: "{{ ansible_os_family }}.yml"
+
+# Include RedHat specific variables due to x64/x86 differences
+- name: Include RedHat x86 variables
+  include_vars: "{{ ansible_os_family }}-x86.yml"
+  when: "'{{ansible_os_family}}' == 'RedHat' and '{{ansible_architecture}}' == 'i386'"
+
+- name: Include RedHat x64 variables
+  include_vars: "{{ ansible_os_family }}-x64.yml"
+  when: "'{{ansible_os_family}}' == 'RedHat' and '{{ansible_architecture}}' == 'x86_64'"
+
+# Install our needed packages for each specific OS
+# Debian packages
+- include: packages-debian.yml
+  when: "ansible_os_family == 'Debian'"
+
+# RedHat based packages
+- include: packages-redhat.yml
+  when: "ansible_os_family == 'RedHat'"
+
+# Create our config
+- name: Create nrpe.cfg from template
+  template: >
+    src=nrpe.cfg.j2
+    dest=/etc/nagios/nrpe.cfg
+    owner=root group=root mode=0644 backup=yes
+  notify: restart nagios-nrpe-server 
+
+# Copy nrpe_local.cfg
+- name: Ensure nrpe_ansible.cfg is up to date
+  copy: dest=/etc/nagios/nrpe_ansible.cfg src=nrpe_ansible.cfg
+        owner=root group=root mode=0644
+  notify: restart nagios-nrpe-server
+
+# Ensure NRPE server is running and will start at boot
+- name: Ensure NRPE server is running
+  service: name="{{ nagios_nrpe_server_service }}" state=started enabled=yes
