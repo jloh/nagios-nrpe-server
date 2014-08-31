@@ -1,7 +1,9 @@
 Nagios NRPE Server Config
 =========
 
-A Ansible role to handle the installation and rollout of the Nagios NRPE Daemon
+A Ansible role to handle the installation and rollout of the Nagios NRPE Daemon.
+
+I've only selected certain platforms that I know this 100% works on, but it will work on any platform that NRPE can be installed on.
 
 Requirements
 ------------
