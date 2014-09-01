@@ -46,7 +46,7 @@ Example Playbook
 
     - hosts: servers
       roles:
-         - mooash.nagios-nrpe-server, nagios_nrpe_server_allowed_hosts: }
+         - mooash.nagios-nrpe-server
        vars:
          nagios_nrpe_server_allowed_hosts: 192.168.0.1,127.0.0.1
 
