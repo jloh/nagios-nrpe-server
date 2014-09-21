@@ -28,13 +28,15 @@
   template: >
     src=nrpe.cfg.j2
     dest=/etc/nagios/nrpe.cfg
-    owner=root group=root mode=0644 backup=yes
+    owner=root group=root mode=0644
   notify: restart nagios-nrpe-server 
 
-# Copy nrpe_local.cfg
-- name: Ensure nrpe_ansible.cfg is up to date
-  copy: dest=/etc/nagios/nrpe_ansible.cfg src=nrpe_ansible.cfg
-        owner=root group=root mode=0644
+# Create nrpe_ansible.cfg
+- name: Create nrpe_ansible.cfg from template
+  template: >
+    src=nrpe_ansible.cfg.j2
+    dest=/etc/nagios/nrpe_ansible.cfg
+    owner=root group=root mode=0644
   notify: restart nagios-nrpe-server
 
 # Ensure NRPE server is running and will start at boot
