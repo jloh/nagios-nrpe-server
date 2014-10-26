@@ -1,5 +1,5 @@
 ---
-# Nagios NRPE Server roles by Mooash
+# Nagios NRPE Server role by Mooash
 
 # Include variables at the start so they're in scope
 - name: Include OS-Specific variables
@@ -25,6 +25,7 @@
 
 # Create our config
 - name: Create nrpe.cfg from template
+  sudo: true
   template: >
     src=nrpe.cfg.j2
     dest=/etc/nagios/nrpe.cfg
@@ -33,6 +34,7 @@
 
 # Create nrpe_ansible.cfg
 - name: Create nrpe_ansible.cfg from template
+  sudo: true
   template: >
     src=nrpe_ansible.cfg.j2
     dest=/etc/nagios/nrpe_ansible.cfg
@@ -41,4 +43,6 @@
 
 # Ensure NRPE server is running and will start at boot
 - name: Ensure NRPE server is running
+  sudo: true
   service: name="{{ nagios_nrpe_server_service }}" state=started enabled=yes
+
