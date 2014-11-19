@@ -1,0 +1,12 @@
+---
+# from : http://xmodulo.com/monitor-server-memory-usage-nagios-remote-plugin-executor.html
+
+- name: download check_mem
+  sudo: true 
+  get_url: >
+    url=https://raw.githubusercontent.com/justintime/nagios-plugins/master/check_mem/check_mem.pl 
+    dest={{nagios_nrpe_server_plugins_dir}}/check_mem
+
+- name: set permissions 
+  sudo: true 
+  file: path={{nagios_nrpe_server_plugins_dir}}/check_mem mode=0655

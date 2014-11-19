@@ -23,6 +23,8 @@
 - include: packages-redhat.yml
   when: "ansible_os_family == 'RedHat'"
 
+- include: extra-plugins.yml
+
 # Create our config
 - name: Create nrpe.cfg from template
   sudo: true
