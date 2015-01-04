@@ -41,6 +41,16 @@
     owner=root group=root mode=0644
   notify: restart nagios-nrpe-server
 
+# Sync our plugins
+- name: Install plugins
+  sudo: true
+  copy: >
+    src={{ item }}
+    dest='{{ nagios_nrpe_server_plugins_dir }}/'
+    owner=root group=root mode=0755
+  with_fileglob:
+    - plugins/*
+
 # Ensure NRPE server is running and will start at boot
 - name: Ensure NRPE server is running
   sudo: true
