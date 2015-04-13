@@ -23,12 +23,16 @@
 - include: packages-redhat.yml
   when: "ansible_os_family == 'RedHat'"
 
+# Arch Linux based packages
+- include: packages-archlinux.yml
+  when: "ansible_os_family == 'Archlinux'"
+
 # Create our config
 - name: Create nrpe.cfg from template
   sudo: true
   template: >
     src=nrpe.cfg.j2
-    dest=/etc/nagios/nrpe.cfg
+    dest={{ nagios_nrpe_server_dir }}/nrpe.cfg
     owner=root group=root mode=0644
   notify: restart nagios-nrpe-server 
 
@@ -37,7 +41,7 @@
   sudo: true
   template: >
     src=nrpe_ansible.cfg.j2
-    dest=/etc/nagios/nrpe_ansible.cfg
+    dest={{ nagios_nrpe_server_dir }}/nrpe_ansible.cfg
     owner=root group=root mode=0644
   notify: restart nagios-nrpe-server
 
@@ -55,4 +59,4 @@
 - name: Ensure NRPE server is running
   sudo: true
   service: name="{{ nagios_nrpe_server_service }}" state=started enabled=yes
-
+  
