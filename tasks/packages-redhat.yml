@@ -9,5 +9,5 @@
 - name: Install Nagios NRPE Plugins [RedHat]
   sudo: true
   yum: name=nagios-plugins-all state=present enablerepo="{{ nagios_nrpe_server_repo_redhat }}"
-  notify: restart nagios-nrpe-server 
-
+  notify: restart nagios-nrpe-server
+  

@@ -10,13 +10,10 @@
 # from which the check_nrpe client is being executed.
 #############################################################################
 
-
 # LOG FACILITY
 # The syslog facility that should be used for logging purposes.
 
 log_facility=daemon
-
-
 
 # PID FILE
 # The name of the file in which the NRPE daemon should write it's process ID
@@ -25,8 +22,6 @@ log_facility=daemon
 
 pid_file={{ nagios_nrpe_server_pid }}
 
-
-
 # PORT NUMBER
 # Port number we should wait for connections on.
 # NOTE: This must be a non-priviledged port (i.e. > 1024).
@@ -34,16 +29,12 @@ pid_file={{ nagios_nrpe_server_pid }}
 
 server_port={{ nagios_nrpe_server_port }}
 
-
-
 # SERVER ADDRESS
 # Address that nrpe should bind to in case there are more than one interface
 # and you do not want nrpe to bind on all interfaces.
 # NOTE: This option is ignored if NRPE is running under either inetd or xinetd
 
 #server_address={{ nagios_nrpe_server_bind_address }}
-
-
 
 # NRPE USER
 # This determines the effective user that the NRPE daemon should run as.  
@@ -53,8 +44,6 @@ server_port={{ nagios_nrpe_server_port }}
 
 nrpe_user={{ nagios_nrpe_server_user }}
 
-
-
 # NRPE GROUP
 # This determines the effective group that the NRPE daemon should run as.  
 # You can either supply a group name or a GID.
@@ -62,8 +51,6 @@ nrpe_user={{ nagios_nrpe_server_user }}
 # NOTE: This option is ignored if NRPE is running under either inetd or xinetd
 
 nrpe_group={{ nagios_nrpe_server_group }}
-
-
 
 # ALLOWED HOST ADDRESSES
 # This is an optional comma-delimited list of IP address or hostnames 
@@ -80,8 +67,6 @@ nrpe_group={{ nagios_nrpe_server_group }}
 
 allowed_hosts={{ nagios_nrpe_server_allowed_hosts }}
 
-
-
 # COMMAND ARGUMENT PROCESSING
 # This option determines whether or not the NRPE daemon will allow clients
 # to specify arguments to commands that are executed.  This option only works
@@ -95,8 +80,6 @@ allowed_hosts={{ nagios_nrpe_server_allowed_hosts }}
 # Values: 0=do not allow arguments, 1=allow command arguments
 
 dont_blame_nrpe=0
-
-
 
 # BASH COMMAND SUBTITUTION
 # This option determines whether or not the NRPE daemon will allow clients
@@ -113,8 +96,6 @@ dont_blame_nrpe=0
 #         1=allow bash command substitutions
 
 allow_bash_command_substitution=0
-
-
 
 # COMMAND PREFIX
 # This option allows you to prefix all commands with a user-defined string.
@@ -135,8 +116,6 @@ allow_bash_command_substitution=0
 
 # command_prefix=/usr/bin/sudo 
 
-
-
 # DEBUGGING OPTION
 # This option determines whether or not debugging messages are logged to the
 # syslog facility.
@@ -144,15 +123,11 @@ allow_bash_command_substitution=0
 
 debug=0
 
-
-
 # COMMAND TIMEOUT
 # This specifies the maximum number of seconds that the NRPE daemon will
 # allow plugins to finish executing before killing them off.
 
 command_timeout=60
-
-
 
 # CONNECTION TIMEOUT
 # This specifies the maximum number of seconds that the NRPE daemon will
@@ -162,8 +137,6 @@ command_timeout=60
 # accumulate, eating system resources. Do not set this too low.
 
 connection_timeout=300
-
-
 
 # WEEK RANDOM SEED OPTION
 # This directive allows you to use SSL even if your system does not have
@@ -176,14 +149,10 @@ connection_timeout=300
 
 #allow_weak_random_seed=1
 
-
-
 # INCLUDE CONFIG FILE
 # This directive allows you to include definitions from an external config file.
 
 #include=<somefile.cfg>
-
-
 
 # INCLUDE CONFIG DIRECTORY
 # This directive allows you to include definitions from config files (with a
@@ -191,8 +160,6 @@ connection_timeout=300
 
 #include_dir=<somedirectory>
 #include_dir=<someotherdirectory>
-
-
 
 # COMMAND DEFINITIONS
 # Command definitions that this daemon will run.  Definitions
@@ -213,7 +180,6 @@ connection_timeout=300
 # to match the argument format the plugins expect.  Remember, these are
 # examples only!
 
-
 # The following examples use hardcoded command arguments...
 
 command[check_users]={{ nagios_nrpe_server_plugins_dir }}/check_users -w 5 -c 10
@@ -221,7 +187,6 @@ command[check_load]={{ nagios_nrpe_server_plugins_dir }}/check_load -w 15,10,5 -
 command[check_hda1]={{ nagios_nrpe_server_plugins_dir }}/check_disk -w 20% -c 10% -p /dev/hda1
 command[check_zombie_procs]={{ nagios_nrpe_server_plugins_dir }}/check_procs -w 5 -c 10 -s Z
 command[check_total_procs]={{ nagios_nrpe_server_plugins_dir }}/check_procs -w 150 -c 200 
-
 
 # The following examples allow user-supplied arguments and can
 # only be used if the NRPE daemon was compiled with support for 
@@ -234,14 +199,17 @@ command[check_total_procs]={{ nagios_nrpe_server_plugins_dir }}/check_procs -w 1
 #command[check_disk]={{ nagios_nrpe_server_plugins_dir }}/check_disk -w $ARG1$ -c $ARG2$ -p $ARG3$
 #command[check_procs]={{ nagios_nrpe_server_plugins_dir }}/check_procs -w $ARG1$ -c $ARG2$ -s $ARG3$
 
+{% if 'ansible_os_family' != 'Archlinux' %}
 #
 # local configuration:
-#	if you'd prefer, you can instead place directives here
-include=/etc/nagios/nrpe_local.cfg
-include=/etc/nagios/nrpe_ansible.cfg
+# if you'd prefer, you can instead place directives here
+include={{ nagios_nrpe_server_dir }}/nrpe_local.cfg
+{% endif %}
+include={{ nagios_nrpe_server_dir }}/nrpe_ansible.cfg
 
+{% if 'ansible_os_family' != 'Archlinux' %}
 # 
 # you can place your config snipplets into nrpe.d/
 # only snipplets ending in .cfg will get included
-include_dir=/etc/nagios/nrpe.d/
-
+include_dir={{ nagios_nrpe_server_dir }}/nrpe.d/
+{% endif %}
