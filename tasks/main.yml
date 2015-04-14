@@ -34,7 +34,7 @@
     src=nrpe.cfg.j2
     dest={{ nagios_nrpe_server_dir }}/nrpe.cfg
     owner=root group=root mode=0644
-  notify: restart nagios-nrpe-server 
+  notify: restart nagios-nrpe-server
 
 # Create nrpe_ansible.cfg
 - name: Create nrpe_ansible.cfg from template
@@ -59,4 +59,3 @@
 - name: Ensure NRPE server is running
   sudo: true
   service: name="{{ nagios_nrpe_server_service }}" state=started enabled=yes
-  

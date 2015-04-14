@@ -1,6 +1,6 @@
 ---
 # Update apt-cache for Debian based OS's
-- name: Update apt cache
+- name: Update apt cache [Debian]
   sudo: true
   apt: update_cache=yes
 
@@ -8,4 +8,3 @@
 - name: Install Nagios NRPE Server [Debian]
   sudo: true
   apt: name=nagios-nrpe-server state=present
-  

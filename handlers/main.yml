@@ -6,4 +6,3 @@
 - name: restart nagios-nrpe-server
   sudo: true
   service: name="{{ nagios_nrpe_server_service }}" state=restarted
-  
