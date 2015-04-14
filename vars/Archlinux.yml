@@ -7,3 +7,4 @@ nagios_nrpe_server_group: 31
 nagios_nrpe_server_service: nrpe
 nagios_nrpe_server_plugins_dir: /usr/lib/monitoring-plugins
 nagios_nrpe_server_dir: /etc/nrpe
+

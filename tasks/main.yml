@@ -31,8 +31,8 @@
 - name: Create nrpe.cfg from template
   sudo: true
   template: >
-    src=nrpe.cfg.j2
-    dest={{ nagios_nrpe_server_dir }}/nrpe.cfg
+    src="nrpe.cfg.j2"
+    dest="{{ nagios_nrpe_server_dir }}/nrpe.cfg"
     owner=root group=root mode=0644
   notify: restart nagios-nrpe-server
 
@@ -40,8 +40,8 @@
 - name: Create nrpe_ansible.cfg from template
   sudo: true
   template: >
-    src=nrpe_ansible.cfg.j2
-    dest={{ nagios_nrpe_server_dir }}/nrpe_ansible.cfg
+    src="nrpe_ansible.cfg.j2"
+    dest="{{ nagios_nrpe_server_dir }}/nrpe_ansible.cfg"
     owner=root group=root mode=0644
   notify: restart nagios-nrpe-server
 
@@ -49,8 +49,8 @@
 - name: Install plugins
   sudo: true
   copy: >
-    src={{ item }}
-    dest='{{ nagios_nrpe_server_plugins_dir }}/'
+    src="{{ item }}"
+    dest="{{ nagios_nrpe_server_plugins_dir }}/"
     owner=root group=root mode=0755
   with_fileglob:
     - plugins/*
@@ -59,3 +59,4 @@
 - name: Ensure NRPE server is running
   sudo: true
   service: name="{{ nagios_nrpe_server_service }}" state=started enabled=yes
+
