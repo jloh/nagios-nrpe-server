@@ -8,4 +8,3 @@
 - name: Install Nagios NRPE Server [Arch Linux]
   sudo: true
   pacman: name=nrpe state=present
-

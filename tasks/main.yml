@@ -59,4 +59,3 @@
 - name: Ensure NRPE server is running
   sudo: true
   service: name="{{ nagios_nrpe_server_service }}" state=started enabled=yes
-

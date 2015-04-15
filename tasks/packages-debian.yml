@@ -8,4 +8,3 @@
 - name: Install Nagios NRPE Server [Debian]
   sudo: true
   apt: name=nagios-nrpe-server state=present
-
