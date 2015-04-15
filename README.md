@@ -1,14 +1,23 @@
 Nagios NRPE Server Config
 =========
 
-A Ansible role to handle the installation and rollout of the Nagios NRPE Daemon.
+[![Build Status](https://travis-ci.org/Mooash/nagios-nrpe-server.svg?branch=master)](https://travis-ci.org/Mooash/nagios-nrpe-server)
 
-I've only selected certain platforms that I know this 100% works on, but it will work on any platform that NRPE can be installed on.
+An Ansible role to handle the installation and rollout of the Nagios NRPE Daemon.
+
+I've only selected certain platforms that I know this 100% works on, but it should work on any platform that NRPE can be installed on.
 
 Requirements
 ------------
 
 RedHat based OS's must have the EPEL repo.
+
+Role Information
+--------------
+
+This role gives you the ability to deploy plugins on a global and per-server basis. This can be done by putting plugins into [`files/plugins/global`](files/plugins/global) or by creating a folder in `files/plugins/` that is the servers [FQDN](http://en.wikipedia.org/wiki/Fully_qualified_domain_name).
+
+You can find out your servers FQDN by running the [Ansible Setup](http://docs.ansible.com/setup_module.html) module.
 
 Role Variables
 --------------
