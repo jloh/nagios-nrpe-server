@@ -46,14 +46,24 @@
   notify: restart nagios-nrpe-server
 
 # Sync our plugins
-- name: Install plugins
+- name: Install global plugins
   sudo: true
   copy: >
     src="{{ item }}"
     dest="{{ nagios_nrpe_server_plugins_dir }}/"
     owner=root group=root mode=0755
   with_fileglob:
-    - plugins/*
+    - plugins/global/*
+
+# Install per-server plugins
+- name: Install per-server plugins
+  sudo: true
+  copy: >
+    src="{{ item }}"
+    dest="{{ nagios_nrpe_server_plugins_dir }}/"
+    owner=root group=root mode=0755
+  with_fileglob:
+    - "plugins/{{ ansible_fqdn }}/*"
 
 # Ensure NRPE server is running and will start at boot
 - name: Ensure NRPE server is running
