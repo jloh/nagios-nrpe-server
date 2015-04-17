@@ -27,3 +27,9 @@ notifications:
     rooms:
       secure: Xpubf07CxVs1Odkxq8NzCAqQqmqp17FIBUz+r/KWqO3cTNCUtFNio6GNo+eKmINHV6HBBEnW/WKKCKlMAgKcds1eMrkgStMKVUIg6Ev7gCqlLZpPPDeZLSwyfbpIStPAii9Fj3TYH+bxtBVLeMdWQjX835xElfQEePGUeS2W29A=
     notify: true
+  webhooks:
+    urls:
+      secure: "zt8rPZFlXRcSWMLe1B4DF49boDw4eMpfoP5beB/9nDJaZvv/o/SUagYf+iQlonLz0nPMkCEIPBR0M+BUH/e4tXIV2AGdYoa/5x35iJaNpOFqqUjEDZu73rkZqdB+6DHcJEBHhMEAYegZpur/SJWQop6votWdt5dXQVVW6Pcqo0U="
+    on_success: change
+    on_failure: always
+    on_start: false
