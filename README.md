@@ -1,7 +1,7 @@
 Nagios NRPE Server Config
 =========
 
-[![Build Status](https://travis-ci.org/Mooash/nagios-nrpe-server.svg?branch=master)](https://travis-ci.org/Mooash/nagios-nrpe-server)
+[![GitHub version](https://badge.fury.io/gh/Mooash%2Fnagios-nrpe-server.svg)](http://badge.fury.io/gh/Mooash%2Fnagios-nrpe-server) [![Build Status](https://travis-ci.org/Mooash/nagios-nrpe-server.svg?branch=master)](https://travis-ci.org/Mooash/nagios-nrpe-server)
 
 [![Join the chat at https://gitter.im/Mooash/project-chat](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/Mooash/project-chat?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
