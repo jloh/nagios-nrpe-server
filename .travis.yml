@@ -29,7 +29,7 @@ notifications:
     notify: true
   webhooks:
     urls:
-      secure: "zt8rPZFlXRcSWMLe1B4DF49boDw4eMpfoP5beB/9nDJaZvv/o/SUagYf+iQlonLz0nPMkCEIPBR0M+BUH/e4tXIV2AGdYoa/5x35iJaNpOFqqUjEDZu73rkZqdB+6DHcJEBHhMEAYegZpur/SJWQop6votWdt5dXQVVW6Pcqo0U="
+      secure: "Rb1vSgfN9BcD18U4KzZbIqxIUDZwWYHexgIaYT4uhP+f6sazy6EShZFwZqDYcJeomyckoS7sKet2ccSAaaFOPs86NdKa42VNZKl+E+I0WGWpniMfJR1xo+qGE9WvVjWbqmH/6k+HUTS0ouP9FyKAXkhRpox1K5s+2cOBeI5Okq8="
     on_success: change
     on_failure: always
     on_start: false
