@@ -27,6 +27,10 @@
 - include: packages-archlinux.yml
   when: "ansible_os_family == 'Archlinux'"
 
+# Solaris based packages
+- include: packages-Solaris.yml
+  when: "ansible_os_family == 'Solaris'"
+  
 # Create our config
 - name: Create nrpe.cfg from template
   sudo: true
