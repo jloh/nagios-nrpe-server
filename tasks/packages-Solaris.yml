@@ -1,6 +1,5 @@
 ---
-# Nagios NRPE Server for RedHat based OS's
-# The EPEL repo is required for this package
+# Nagios NRPE Server for Solaris
 - name: Install Nagios NRPE Server [Solaris]
   sudo: true
   pkgutil: name=CSWnrpe state=present 
