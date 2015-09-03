@@ -1,0 +1,19 @@
+---
+- name: Ensure CSWpkgutil is installed
+  svr4pkg: src=http://get.opencsw.org/now name=CSWpkgutil state=present
+
+# pkgutil module does not actually provide full path to pkgutil --
+# until that changes, it's necessary to make sure that /opt/csw/bin
+# is included in path:
+# Nagios NRPE Server for Solaris
+- name: Install Nagios NRPE Server [Solaris]
+  pkgutil: name=CSWnrpe state=present 
+  environment: 
+    PATH: "{{ansible_env.PATH}}:/opt/csw/bin"
+
+# Nagios Plugins
+- name: Install Nagios NRPE Plugins [Solaris]
+  pkgutil: name="CSWnrpe-plugin" state=present 
+  environment: 
+    PATH: "{{ansible_env.PATH}}:/opt/csw/bin"
+  notify: restart nagios-nrpe-server

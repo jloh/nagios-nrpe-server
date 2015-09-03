@@ -1,0 +1,7 @@
+nagios_nrpe_server_dir: /etc/opt/csw
+nagios_nrpe_server_group: nagios
+nagios_nrpe_server_pid: /var/run/nrpe.pid
+nagios_nrpe_server_plugins_dir: /opt/csw/libexec/nagios-plugins
+nagios_nrpe_server_service: svc:/network/cswnrpe:default
+nagios_nrpe_server_user: nagios
+
