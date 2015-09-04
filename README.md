@@ -9,6 +9,22 @@ An Ansible role to handle the installation and rollout of the Nagios NRPE Daemon
 
 I've only selected certain platforms that I know this 100% works on, but it should work on any platform that NRPE can be installed on.
 
+Currently supports:
+
+ * Debian
+   - Squeeze
+   - Wheezy
+ * Ubuntu
+   - Raring
+   - Saucy
+   - Trusty
+ * RedHat
+   - At least 6 onwards
+ * Arch Linux
+   - All
+ * Solaris
+   - At least 11.1
+
 Requirements
 ------------
 
@@ -55,6 +71,14 @@ Arhc Linux:
   * *nagios_nrpe_server_service*: nrpe
   * *nagios_nrpe_server_plugins_dir*: /usr/lib/monitoring-plugins
   * *nagios_nrpe_server_dir*: /etc/nrpe
+
+Solaris:
+  * *nagios_nrpe_server_dir*: /etc/opt/csw
+  * *nagios_nrpe_server_group*: nagios
+  * *nagios_nrpe_server_pid*: /var/run/nrpe.pid
+  * *nagios_nrpe_server_plugins_dir*: /opt/csw/libexec/nagios-plugins
+  * *nagios_nrpe_server_service*: svc:/network/cswnrpe:default
+  * *nagios_nrpe_server_user*: nagios
 
 Dependencies
 ------------

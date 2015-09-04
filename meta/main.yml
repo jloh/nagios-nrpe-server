@@ -17,6 +17,9 @@ galaxy_info:
   - name: ArchLinux
     versions:
     - all
+  - name: Solaris
+    versions:
+    - 11.1
   categories:
     - monitoring
     - system
