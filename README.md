@@ -3,8 +3,6 @@ Nagios NRPE Server Config
 
 [![GitHub version](https://badge.fury.io/gh/Mooash%2Fnagios-nrpe-server.svg)](http://badge.fury.io/gh/Mooash%2Fnagios-nrpe-server) [![Build Status](https://travis-ci.org/Mooash/nagios-nrpe-server.svg?branch=master)](https://travis-ci.org/Mooash/nagios-nrpe-server)
 
-[![Join the chat at https://gitter.im/Mooash/project-chat](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/Mooash/project-chat?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
 An Ansible role to handle the installation and rollout of the Nagios NRPE Daemon.
 
 I've only selected certain platforms that I know this 100% works on, but it should work on any platform that NRPE can be installed on.
