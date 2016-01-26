@@ -1,8 +1,7 @@
-#################################
-# THIS FILE IS MANAGED BY ANSIBLE
-# DO NOT EDIT LOCALLY
-#################################
+#{{ ansible_managed }}
 
-# Example check
-command[check_mailq]={{ nagios_nrpe_server_plugins_dir }}/check_mailq -c 50 -w 20
+# Configs
+{% for directive, value in nagios_nrpe_server_check.iteritems() if nagios_nrpe_server_check|length > 0 %}
+command[{{ directive }}]={{ nagios_nrpe_server_plugins_dir }} {{ value }}
+{% endfor %}
 
