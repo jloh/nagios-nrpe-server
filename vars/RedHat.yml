@@ -10,3 +10,4 @@ nagios_nrpe_server_repo_redhat: epel
 nagios_nrpe_server_service: nrpe
 nagios_server_dir: /etc/nagios
 nagios_nrpe_server_dir: /etc/nrpe.d
+nagios_nrpe_managed_files: '\.cfg'
