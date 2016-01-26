@@ -35,7 +35,7 @@
 - name: Create nrpe.cfg from template
   template: >
     src="nrpe.cfg.j2"
-    dest="{{ nagios_nrpe_server_dir }}/nrpe.cfg"
+    dest="{{ nagios_server_dir }}/nrpe.cfg"
     owner=root group=root mode=0644
   notify: restart nagios-nrpe-server
 
