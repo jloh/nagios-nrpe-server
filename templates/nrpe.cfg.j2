@@ -182,11 +182,11 @@ connection_timeout=300
 
 # The following examples use hardcoded command arguments...
 
-command[check_users]={{ nagios_nrpe_server_plugins_dir }}/check_users -w 5 -c 10
-command[check_load]={{ nagios_nrpe_server_plugins_dir }}/check_load -w 15,10,5 -c 30,25,20
-command[check_hda1]={{ nagios_nrpe_server_plugins_dir }}/check_disk -w 20% -c 10% -p /dev/hda1
-command[check_zombie_procs]={{ nagios_nrpe_server_plugins_dir }}/check_procs -w 5 -c 10 -s Z
-command[check_total_procs]={{ nagios_nrpe_server_plugins_dir }}/check_procs -w 150 -c 200 
+#command[check_users]={{ nagios_nrpe_server_plugins_dir }}/check_users -w 5 -c 10
+#command[check_load]={{ nagios_nrpe_server_plugins_dir }}/check_load -w 15,10,5 -c 30,25,20
+#command[check_hda1]={{ nagios_nrpe_server_plugins_dir }}/check_disk -w 20% -c 10% -p /dev/hda1
+#command[check_zombie_procs]={{ nagios_nrpe_server_plugins_dir }}/check_procs -w 5 -c 10 -s Z
+#command[check_total_procs]={{ nagios_nrpe_server_plugins_dir }}/check_procs -w 150 -c 200 
 
 # The following examples allow user-supplied arguments and can
 # only be used if the NRPE daemon was compiled with support for 
