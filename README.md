@@ -95,9 +95,15 @@ Example Playbook
 ```yaml
 - hosts: servers
   roles:
-     - mooash.nagios-nrpe-server
+     - franlr.nagios-nrpe-server
    vars:
-     nagios_nrpe_server_allowed_hosts: 192.168.0.1,127.0.0.1
+     nagios_nrpe_server_allowed_hosts: 
+       - 192.168.0.1
+       - 127.0.0.1
+     nagios_nrpe_server_bind_address: 127.0.0.1
+     nagios_nrpe_server_port: 5666
+     nagios_nrpe_server_check:
+       check_load: 'check_load -w 8,5,2 -c 10,8,3'
 ```
 
 License
