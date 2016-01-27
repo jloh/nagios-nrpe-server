@@ -1,8 +1,6 @@
 Nagios NRPE Server Config
 =========
 
-[![Ansible Galaxy](https://img.shields.io/badge/galaxy-franlr--nagios-nrpe-server-blue.svg)](https://galaxy.ansible.com/list#/roles/)
-
 An Ansible role to handle the installation and rollout of the Nagios NRPE Daemon.
 
 I've only selected certain platforms that I know this 100% works on, but it should work on any platform that NRPE can be installed on.
