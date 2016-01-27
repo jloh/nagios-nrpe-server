@@ -51,8 +51,10 @@ Debian:
   * *nagios_nrpe_server_group*: nagios
   * *nagios_nrpe_server_service*: nagios-nrpe-server
   * *nagios_nrpe_server_plugins_dir*: /usr/lib/nagios/plugins
-  * *nagios_nrpe_server_dir*: /etc/nagios
-
+  * *nagios_server_dir*: /etc/nagios
+  * *nagios_nrpe_server_dir*: /etc/nrpe.d
+  * *nagios_nrpe_managed_files*: '\.cfg'
+  
 RedHat:
 
   * *nagios_nrpe_server_pid*: /var/run/nrpe/nrpe.pid
@@ -60,15 +62,19 @@ RedHat:
   * *nagios_nrpe_server_group*: nrpe
   * *nagios_nrpe_server_repo_redhat*: epel
   * *nagios_nrpe_server_service*: nrpe
-  * *nagios_nrpe_server_dir*: /etc/nagios
+  * *nagios_server_dir*: /etc/nagios
+  * *nagios_nrpe_server_dir*: /etc/nrpe.d
+  * *nagios_nrpe_managed_files*: '\.cfg'
 
-Arhc Linux:
+Arch Linux:
   * *nagios_nrpe_server_pid*: /var/run/nrpe/nrpe.pid
   * *nagios_nrpe_server_user*: 31
   * *nagios_nrpe_server_group*: 31
   * *nagios_nrpe_server_service*: nrpe
   * *nagios_nrpe_server_plugins_dir*: /usr/lib/monitoring-plugins
-  * *nagios_nrpe_server_dir*: /etc/nrpe
+  * *nagios_server_dir*: /etc/nagios
+  * *nagios_nrpe_server_dir*: /etc/nrpe.d
+  * *nagios_nrpe_managed_files*: '\.cfg'
 
 Solaris:
   * *nagios_nrpe_server_dir*: /etc/opt/csw
@@ -102,4 +108,4 @@ MIT
 Author Information
 ------------------
 
-Checkout my blog [here](http://www.mooash.me)
+Forked from Mooash [here](http://www.mooash.me)
