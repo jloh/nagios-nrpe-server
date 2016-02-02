@@ -65,7 +65,7 @@ nrpe_group={{ nagios_nrpe_server_group }}
 #
 # NOTE: This option is ignored if NRPE is running under either inetd or xinetd
 
-allowed_hosts={{ nagios_nrpe_server_allowed_hosts }}
+allowed_hosts={{ nagios_nrpe_server_allowed_hosts|join(',') }}
 
 # COMMAND ARGUMENT PROCESSING
 # This option determines whether or not the NRPE daemon will allow clients
@@ -182,11 +182,11 @@ connection_timeout=300
 
 # The following examples use hardcoded command arguments...
 
-command[check_users]={{ nagios_nrpe_server_plugins_dir }}/check_users -w 5 -c 10
-command[check_load]={{ nagios_nrpe_server_plugins_dir }}/check_load -w 15,10,5 -c 30,25,20
-command[check_hda1]={{ nagios_nrpe_server_plugins_dir }}/check_disk -w 20% -c 10% -p /dev/hda1
-command[check_zombie_procs]={{ nagios_nrpe_server_plugins_dir }}/check_procs -w 5 -c 10 -s Z
-command[check_total_procs]={{ nagios_nrpe_server_plugins_dir }}/check_procs -w 150 -c 200 
+#command[check_users]={{ nagios_nrpe_server_plugins_dir }}/check_users -w 5 -c 10
+#command[check_load]={{ nagios_nrpe_server_plugins_dir }}/check_load -w 15,10,5 -c 30,25,20
+#command[check_hda1]={{ nagios_nrpe_server_plugins_dir }}/check_disk -w 20% -c 10% -p /dev/hda1
+#command[check_zombie_procs]={{ nagios_nrpe_server_plugins_dir }}/check_procs -w 5 -c 10 -s Z
+#command[check_total_procs]={{ nagios_nrpe_server_plugins_dir }}/check_procs -w 150 -c 200 
 
 # The following examples allow user-supplied arguments and can
 # only be used if the NRPE daemon was compiled with support for 
@@ -199,17 +199,11 @@ command[check_total_procs]={{ nagios_nrpe_server_plugins_dir }}/check_procs -w 1
 #command[check_disk]={{ nagios_nrpe_server_plugins_dir }}/check_disk -w $ARG1$ -c $ARG2$ -p $ARG3$
 #command[check_procs]={{ nagios_nrpe_server_plugins_dir }}/check_procs -w $ARG1$ -c $ARG2$ -s $ARG3$
 
-{% if 'ansible_os_family' != 'Archlinux' %}
-#
-# local configuration:
-# if you'd prefer, you can instead place directives here
-include={{ nagios_nrpe_server_dir }}/nrpe_local.cfg
-{% endif %}
 include={{ nagios_nrpe_server_dir }}/nrpe_ansible.cfg
 
 {% if 'ansible_os_family' != 'Archlinux' %}
 # 
 # you can place your config snipplets into nrpe.d/
 # only snipplets ending in .cfg will get included
-include_dir={{ nagios_nrpe_server_dir }}/nrpe.d/
+include_dir={{ nagios_nrpe_server_dir }}/
 {% endif %}
