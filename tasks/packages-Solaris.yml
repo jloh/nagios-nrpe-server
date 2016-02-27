@@ -9,11 +9,11 @@
 - name: Install Nagios NRPE Server [Solaris]
   pkgutil: name=CSWnrpe state=present 
   environment: 
-    PATH: "{{ansible_env.PATH}}:/opt/csw/bin"
+    PATH: "{{ ansible_env.PATH }}:/opt/csw/bin"
 
 # Nagios Plugins
 - name: Install Nagios NRPE Plugins [Solaris]
   pkgutil: name="CSWnrpe-plugin" state=present 
   environment: 
-    PATH: "{{ansible_env.PATH}}:/opt/csw/bin"
+    PATH: "{{ ansible_env.PATH }}:/opt/csw/bin"
   notify: restart nagios-nrpe-server
