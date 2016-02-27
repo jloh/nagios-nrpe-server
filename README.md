@@ -91,7 +91,9 @@ Example Playbook
   roles:
      - mooash.nagios-nrpe-server
    vars:
-     nagios_nrpe_server_allowed_hosts: 192.168.0.1,127.0.0.1
+     nagios_nrpe_server_allowed_hosts:
+       - 192.168.0.1
+       - 127.0.0.1
 ```
 
 License
@@ -102,4 +104,4 @@ MIT
 Author Information
 ------------------
 
-Checkout my blog [here](http://www.mooash.me)
+Checkout my blog [here](http://www.mooash.me).

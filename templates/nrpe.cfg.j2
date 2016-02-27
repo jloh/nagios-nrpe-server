@@ -65,7 +65,7 @@ nrpe_group={{ nagios_nrpe_server_group }}
 #
 # NOTE: This option is ignored if NRPE is running under either inetd or xinetd
 
-allowed_hosts={{ nagios_nrpe_server_allowed_hosts }}
+allowed_hosts={{ nagios_nrpe_server_allowed_hosts|join(',') }}
 
 # COMMAND ARGUMENT PROCESSING
 # This option determines whether or not the NRPE daemon will allow clients
