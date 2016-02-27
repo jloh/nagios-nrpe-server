@@ -2,9 +2,9 @@
 # Nagios NRPE Server for RedHat based OS's
 # The EPEL repo is required for this package
 - name: Install Nagios NRPE Server [RedHat]
-  yum: name=nrpe state=present enablerepo="{{ nagios_nrpe_server_repo_redhat }}"
+  yum: name=nrpe state=present
 
 # Nagios Plugins since they aren't installed as part of the package above
 - name: Install Nagios NRPE Plugins [RedHat]
-  yum: name=nagios-plugins-all state=present enablerepo="{{ nagios_nrpe_server_repo_redhat }}"
+  yum: name=nagios-plugins-all state=present
   notify: restart nagios-nrpe-server
