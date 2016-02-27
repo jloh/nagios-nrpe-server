@@ -6,31 +6,13 @@
   include_vars: "{{ ansible_os_family }}.yml"
 
 # Include RedHat specific variables due to x64/x86 differences
-- name: Include RedHat x86 variables
-  include_vars: "{{ ansible_os_family }}-x86.yml"
-  when: "'{{ansible_os_family}}' == 'RedHat' and '{{ansible_architecture}}' == 'i386'"
-
-- name: Include RedHat x64 variables
-  include_vars: "{{ ansible_os_family }}-x64.yml"
-  when: "'{{ansible_os_family}}' == 'RedHat' and '{{ansible_architecture}}' == 'x86_64'"
+- name: Include RedHat architecture specific variables
+  include_vars: "{{ ansible_os_family }}-{{ ansible_architecture }}.yml"
+  when: "'{{ ansible_os_family }}' == 'RedHat'"
 
 # Install our needed packages for each specific OS
-# Debian packages
-- include: packages-debian.yml
-  when: "ansible_os_family == 'Debian'"
+- include: "packages-{{ ansible_os_family }}.yml"
 
-# RedHat based packages
-- include: packages-redhat.yml
-  when: "ansible_os_family == 'RedHat'"
-
-# Arch Linux based packages
-- include: packages-archlinux.yml
-  when: "ansible_os_family == 'Archlinux'"
-
-# Solaris based packages
-- include: packages-Solaris.yml
-  when: "ansible_os_family == 'Solaris'"
-  
 # Create our config
 - name: Create nrpe.cfg from template
   template: >
