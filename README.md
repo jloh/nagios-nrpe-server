@@ -1,7 +1,7 @@
 Nagios NRPE Server Config
 =========
 
-[![GitHub version](https://badge.fury.io/gh/Mooash%2Fnagios-nrpe-server.svg)](http://badge.fury.io/gh/Mooash%2Fnagios-nrpe-server) [![Build Status](https://travis-ci.org/Mooash/nagios-nrpe-server.svg?branch=master)](https://travis-ci.org/Mooash/nagios-nrpe-server)
+[![GitHub version](https://badge.fury.io/gh/jloh%2Fnagios-nrpe-server.svg)](http://badge.fury.io/gh/jloh%2Fnagios-nrpe-server) [![Build Status](https://travis-ci.org/jloh/nagios-nrpe-server.svg?branch=master)](https://travis-ci.org/jloh/nagios-nrpe-server)
 
 An Ansible role to handle the installation and rollout of the Nagios NRPE Daemon.
 
@@ -104,4 +104,4 @@ MIT
 Author Information
 ------------------
 
-Checkout my blog [here](http://www.mooash.me).
+Checkout my blog [here](http://blog.jloh.co).

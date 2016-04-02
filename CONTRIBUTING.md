@@ -1,6 +1,6 @@
 ### General
 
-I've set some general contribution outlines [here](https://github.mooash.com/contributing/#pk_campaign=GitHub-Project&pk_kwd=nagios-nrpe-server). Please read them before opening a pull request.
+I've set some general contribution outlines [here](https://blog.jloh.co/github-contributing-guidelines/#pk_campaign=GitHub-Project&pk_kwd=nagios-nrpe-server). Please read them before opening a pull request.
 
 ### Project Specific
 
