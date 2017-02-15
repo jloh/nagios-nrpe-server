@@ -95,7 +95,7 @@ Example Playbook
      nagios_nrpe_server_allowed_hosts:
        - 192.168.0.1
        - 127.0.0.1
-     nrpe_command:
+     nagios_nrpe_command:
       oracle_tnsping:
         script: check_oracle_health
         option: --mode tnsping

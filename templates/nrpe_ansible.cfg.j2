@@ -5,5 +5,5 @@
 
 # Command NRPE
 {% for nrpe in nagios_nrpe_command %}
-command[{{ nrpe }}]={{ nagios_nrpe_server_plugins_dir }}/{{ nrpe_command[nrpe]["script"] }} {{ nrpe_command[nrpe]["option"] }}
+command[{{ nrpe }}]={{ nagios_nrpe_server_plugins_dir }}/{{ nagios_nrpe_command[nrpe]["script"] }} {{ nagios_nrpe_command[nrpe]["option"] }}
 {% endfor %}
