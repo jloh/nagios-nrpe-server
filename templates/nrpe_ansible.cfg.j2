@@ -3,6 +3,7 @@
 # DO NOT EDIT LOCALLY
 #################################
 
-# Example check
-command[check_mailq]={{ nagios_nrpe_server_plugins_dir }}/check_mailq -c 50 -w 20
-
+# Command NRPE
+{% for nrpe in nagios_nrpe_command %}
+command[{{ nrpe }}]={{ nagios_nrpe_server_plugins_dir }}/{{ nrpe_command[nrpe]["script"] }} {{ nrpe_command[nrpe]["option"] }}
+{% endfor %}
