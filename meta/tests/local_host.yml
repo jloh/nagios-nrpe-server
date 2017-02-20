@@ -3,3 +3,11 @@
   remote_user: root
   roles:
     - nagios-nrpe-server
+  vars:
+     nagios_nrpe_command:
+       oracle_tnsping:
+         script: check_oracle_health
+         option: --mode tnsping
+       oracle_connection-time:
+         script: check_oracle_health
+         option: --mode connection-time
