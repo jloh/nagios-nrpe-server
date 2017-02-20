@@ -96,21 +96,12 @@ Example Playbook
        - 192.168.0.1
        - 127.0.0.1
      nagios_nrpe_command:
-<<<<<<< HEAD
-      oracle_tnsping:
-        script: check_oracle_health
-        option: --mode tnsping
-      oracle_connection-time:
-        script: check_oracle_health
-        option: --mode connection-time
-=======
        oracle_tnsping:
          script: check_oracle_health
          option: --mode tnsping
        oracle_connection-time:
          script: check_oracle_health
          option: --mode connection-time
->>>>>>> 281b6b540002e8fc380593317a02129558d21b57
 ```
 
 License
