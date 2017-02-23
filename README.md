@@ -41,6 +41,7 @@ Role Variables
   * *nagios_nrpe_server_bind_address*: 127.0.0.1
   * *nagios_nrpe_server_port*: 5666
   * *nagios_nrpe_server_allowed_hosts*: 127.0.0.1
+  * *nagios_nrpe_command*: see example playbook section
 
 These are OS specific and likely wont want to be changed
 
@@ -94,6 +95,13 @@ Example Playbook
      nagios_nrpe_server_allowed_hosts:
        - 192.168.0.1
        - 127.0.0.1
+     nagios_nrpe_command:
+       oracle_tnsping:
+         script: check_oracle_health
+         option: --mode tnsping
+       oracle_connection-time:
+         script: check_oracle_health
+         option: --mode connection-time
 ```
 
 License
