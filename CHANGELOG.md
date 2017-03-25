@@ -1,13 +1,15 @@
 # Change Log
 
-## [Unreleased](https://github.com/jloh/nagios-nrpe-server/tree/HEAD)
-
-[Full Changelog](https://github.com/jloh/nagios-nrpe-server/compare/v3.0.0...HEAD)
+## [v3.0.1](https://github.com/jloh/nagios-nrpe-server/tree/v3.0.1) (2017-03-25)
+[Full Changelog](https://github.com/jloh/nagios-nrpe-server/compare/v3.0.0...v3.0.1)
 
 **Implemented enhancements:**
 
-- \[WIP\] Compiling NRPE from source [\#15](https://github.com/jloh/nagios-nrpe-server/issues/15)
 - Nrpe command template [\#19](https://github.com/jloh/nagios-nrpe-server/pull/19) ([bashrc666](https://github.com/bashrc666))
+
+**Fixed bugs:**
+
+- nagios\_nrpe\_command is undefined [\#20](https://github.com/jloh/nagios-nrpe-server/issues/20)
 
 ## [v3.0.0](https://github.com/jloh/nagios-nrpe-server/tree/v3.0.0) (2016-02-27)
 [Full Changelog](https://github.com/jloh/nagios-nrpe-server/compare/v2.3.0...v3.0.0)
