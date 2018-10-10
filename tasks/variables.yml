@@ -1,0 +1,17 @@
+---
+# Variable configuration.
+- name: Include OS-specific variables.
+  include_vars: "{{ ansible_os_family }}.yml"
+  
+- name: Include OS-specific variables (RedHat).
+  include_vars: "{{ ansible_os_family }}-{{ ansible_architecture }}.yml"
+  when: ansible_os_family == 'RedHat'
+
+- name: Set defaults for OS-specific variables
+  set_fact:
+    nagios_nrpe_server_pid: "{{ nagios_nrpe_server_pid | default(__nagios_nrpe_server_pid) }}"
+    nagios_nrpe_server_user: "{{ nagios_nrpe_server_user | default(__nagios_nrpe_server_user) }}"
+    nagios_nrpe_server_group: "{{ nagios_nrpe_server_group | default(__nagios_nrpe_server_group) }}"
+    nagios_nrpe_server_service: "{{ nagios_nrpe_server_service | default(__nagios_nrpe_server_service) }}"
+    nagios_nrpe_server_plugins_dir: "{{ nagios_nrpe_server_plugins_dir | default(__nagios_nrpe_server_plugins_dir) }}"
+    nagios_nrpe_server_dir: "{{ nagios_nrpe_server_dir | default(__nagios_nrpe_server_dir) }}"
