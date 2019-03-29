@@ -1,0 +1,34 @@
+---
+version: 2
+
+jobs:
+  build:
+    docker:
+      - image: circleci/python:3
+    environment:
+      SITE: local_host.yml
+    steps:
+      - checkout
+      - run: sudo pip install ansible
+      - run: "{ echo '[defaults]'; echo 'roles_path = ../../'; } >> ansible.cfg"
+      - run:
+          name: Ansible Version
+          command: ansible --version
+      - run: ansible-playbook -i meta/tests/inventory meta/tests/$SITE --syntax-check
+      - run: ansible-playbook -i meta/tests/inventory meta/tests/$SITE --connection=local --sudo
+
+  lint:
+    docker:
+      - image: circleci/python:3
+    steps:
+      - checkout
+      - run: sudo pip install ansible-lint
+      - run: "{ echo '[defaults]'; echo 'roles_path = ../'; } >> ansible.cfg"
+      - run: ansible-lint nagios-nrpe-server
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      - lint
