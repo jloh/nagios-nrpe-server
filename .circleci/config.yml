@@ -24,7 +24,7 @@ jobs:
       - checkout
       - run: sudo pip install ansible-lint
       - run: "{ echo '[defaults]'; echo 'roles_path = ../'; } >> ansible.cfg"
-      - run: ansible-lint nagios-nrpe-server
+      - run: ansible-lint --exclude=meta/tests/roles/ .
 
 workflows:
   version: 2
