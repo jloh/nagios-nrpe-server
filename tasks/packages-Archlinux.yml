@@ -1,8 +1,11 @@
 ---
 # Update pacman cache for Arch Linux based OS's
 - name: Update pacman cache [Arch Linux]
-  pacman: update_cache=yes
+  pacman:
+    update_cache: yes
 
 # Nagios NRPE Server for Arch Linux based OS's
 - name: Install Nagios NRPE Server [Arch Linux]
-  pacman: name=nrpe state=present
+  pacman:
+    name: nrpe
+    state: present

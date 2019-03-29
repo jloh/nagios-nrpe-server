@@ -10,36 +10,47 @@
 
 # Create our config
 - name: Create nrpe.cfg from template
-  template: >
-    src="nrpe.cfg.j2"
-    dest="{{ nagios_nrpe_server_dir }}/nrpe.cfg"
-    owner=root group=root mode=0644
+  template:
+    src: "nrpe.cfg.j2"
+    dest: "{{ nagios_nrpe_server_dir }}/nrpe.cfg"
+    owner: root
+    group: root
+    mode: 0644
   notify: restart nagios-nrpe-server
 
 # Create nrpe_ansible.cfg
 - name: Create nrpe_ansible.cfg from template
-  template: >
-    src="nrpe_ansible.cfg.j2"
-    dest="{{ nagios_nrpe_server_dir }}/nrpe_ansible.cfg"
-    owner=root group=root mode=0644
+  template:
+    src: "nrpe_ansible.cfg.j2"
+    dest: "{{ nagios_nrpe_server_dir }}/nrpe_ansible.cfg"
+    owner: root
+    group: root
+    mode: 0644
   notify: restart nagios-nrpe-server
 
 # Sync our plugins
 - name: Install global plugins
-  copy: >
-    src="{{ nagios_nrpe_server_plugins_src_dir }}/global/"
-    dest="{{ nagios_nrpe_server_plugins_dir }}"
-    owner=root group=root mode=0755
+  copy:
+    src: "{{ nagios_nrpe_server_plugins_src_dir }}/global/"
+    dest: "{{ nagios_nrpe_server_plugins_dir }}"
+    owner: root
+    group: root
+    mode: 0755
   failed_when: false
   
 # Install per-server plugins
 - name: Install per-server plugins
-  copy: >
-    src="{{ nagios_nrpe_server_plugins_src_dir }}/{{ inventory_hostname }}/"
-    dest="{{ nagios_nrpe_server_plugins_dir }}"
-    owner=root group=root mode=0755
+  copy:
+    src: "{{ nagios_nrpe_server_plugins_src_dir }}/{{ inventory_hostname }}/"
+    dest: "{{ nagios_nrpe_server_plugins_dir }}"
+    owner: root
+    group: root
+    mode: 0755
   failed_when: false
 
 # Ensure NRPE server is running and will start at boot
 - name: Ensure NRPE server is running
-  service: name="{{ nagios_nrpe_server_service }}" state=started enabled=yes
+  service:
+    name: "{{ nagios_nrpe_server_service }}"
+    state: started
+    enabled: yes
