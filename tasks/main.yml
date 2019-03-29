@@ -1,5 +1,5 @@
 ---
-# Nagios NRPE Server role by Mooash
+# Nagios NRPE Server role by James Loh
 
 # Include variables at the start so they're in scope
 - name: Include OS-Specific variables
@@ -37,7 +37,7 @@
     group: root
     mode: 0755
   failed_when: false
-  
+
 # Install per-server plugins
 - name: Install per-server plugins
   copy:

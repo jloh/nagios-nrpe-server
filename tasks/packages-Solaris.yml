@@ -13,7 +13,7 @@
   pkgutil:
     name: CSWnrpe
     state: present
-  environment: 
+  environment:
     PATH: "{{ ansible_env.PATH }}:/opt/csw/bin"
 
 # Nagios Plugins
