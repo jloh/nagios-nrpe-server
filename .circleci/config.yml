@@ -24,7 +24,7 @@ jobs:
       - checkout
       - run: sudo pip install ansible-lint
       - run: "{ echo '[defaults]'; echo 'roles_path = ../'; } >> ansible.cfg"
-      - run: ansible-lint --exclude=meta/tests/roles/ .
+      - run: ansible-lint --exclude=meta/tests/ .
 
 workflows:
   version: 2
