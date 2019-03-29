@@ -3,12 +3,7 @@
 
 # Include variables at the start so they're in scope
 - name: Include OS-Specific variables
-  include_vars: "{{ ansible_os_family }}.yml"
-
-# Include RedHat specific variables due to x64/x86 differences
-- name: Include RedHat architecture specific variables
-  include_vars: "{{ ansible_os_family }}-{{ ansible_architecture }}.yml"
-  when: "'{{ ansible_os_family }}' == 'RedHat'"
+  include_tasks: "variables.yml"
 
 # Install our needed packages for each specific OS
 - include: "packages-{{ ansible_os_family }}.yml"
@@ -32,20 +27,18 @@
 # Sync our plugins
 - name: Install global plugins
   copy: >
-    src="{{ item }}"
-    dest="{{ nagios_nrpe_server_plugins_dir }}/"
+    src="{{ nagios_nrpe_server_plugins_src_dir }}/global/"
+    dest="{{ nagios_nrpe_server_plugins_dir }}"
     owner=root group=root mode=0755
-  with_fileglob:
-    - plugins/global/*
-
+  failed_when: false
+  
 # Install per-server plugins
 - name: Install per-server plugins
   copy: >
-    src="{{ item }}"
-    dest="{{ nagios_nrpe_server_plugins_dir }}/"
+    src="{{ nagios_nrpe_server_plugins_src_dir }}/{{ inventory_hostname }}/"
+    dest="{{ nagios_nrpe_server_plugins_dir }}"
     owner=root group=root mode=0755
-  with_fileglob:
-    - "plugins/{{ ansible_fqdn }}/*"
+  failed_when: false
 
 # Ensure NRPE server is running and will start at boot
 - name: Ensure NRPE server is running
