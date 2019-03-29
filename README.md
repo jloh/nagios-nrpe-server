@@ -1,7 +1,7 @@
 Nagios NRPE Server Config
 =========
 
-[![GitHub version](https://badge.fury.io/gh/jloh%2Fnagios-nrpe-server.svg)](http://badge.fury.io/gh/jloh%2Fnagios-nrpe-server) [![Build Status](https://travis-ci.org/jloh/nagios-nrpe-server.svg?branch=master)](https://travis-ci.org/jloh/nagios-nrpe-server)
+[![GitHub version](https://badge.fury.io/gh/jloh%2Fnagios-nrpe-server.svg)](http://badge.fury.io/gh/jloh%2Fnagios-nrpe-server) [![CircleCI](https://circleci.com/gh/jloh/nagios-nrpe-server.svg?style=svg)](https://circleci.com/gh/jloh/nagios-nrpe-server)
 
 An Ansible role to handle the installation and rollout of the Nagios NRPE Daemon.
 
