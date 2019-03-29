@@ -21,6 +21,6 @@
   pkgutil:
     name: "CSWnrpe-plugin"
     state: present
-  environment: 
+  environment:
     PATH: "{{ ansible_env.PATH }}:/opt/csw/bin"
   notify: restart nagios-nrpe-server
