@@ -1,5 +1,30 @@
 # Change Log
 
+## [v3.1.0](https://github.com/jloh/nagios-nrpe-server/tree/v3.1.0) (2019-04-08)
+[Full Changelog](https://github.com/jloh/nagios-nrpe-server/compare/v3.0.1...v3.1.0)
+
+**Implemented enhancements:**
+
+- Add aarch64 config for ARM based RedHat/Amazon Linux installs [\#25](https://github.com/jloh/nagios-nrpe-server/pull/25) ([thowat](https://github.com/thowat))
+- Allow variable override to work with OS defaults [\#24](https://github.com/jloh/nagios-nrpe-server/pull/24) ([benagricola](https://github.com/benagricola))
+- enable server\_address and disable example commands in nrpe.cfg template [\#22](https://github.com/jloh/nagios-nrpe-server/pull/22) ([MrTango](https://github.com/MrTango))
+
+**Fixed bugs:**
+
+- nagios-plugins aren't installed on debain based OS' [\#23](https://github.com/jloh/nagios-nrpe-server/issues/23)
+- Custom variables overwritten [\#18](https://github.com/jloh/nagios-nrpe-server/issues/18)
+- enable server\\_address and disable example commands in nrpe.cfg template [\#22](https://github.com/jloh/nagios-nrpe-server/pull/22) ([MrTango](https://github.com/MrTango))
+
+**Closed issues:**
+
+- Ansible 2.X mega issue [\#16](https://github.com/jloh/nagios-nrpe-server/issues/16)
+
+**Merged pull requests:**
+
+- Fix lint errors [\#28](https://github.com/jloh/nagios-nrpe-server/pull/28) ([jloh](https://github.com/jloh))
+- Setup CircleCI for tests [\#27](https://github.com/jloh/nagios-nrpe-server/pull/27) ([jloh](https://github.com/jloh))
+- Fix var usage for aarch64 after \#24 [\#26](https://github.com/jloh/nagios-nrpe-server/pull/26) ([jloh](https://github.com/jloh))
+
 ## [v3.0.1](https://github.com/jloh/nagios-nrpe-server/tree/v3.0.1) (2017-03-25)
 [Full Changelog](https://github.com/jloh/nagios-nrpe-server/compare/v3.0.0...v3.0.1)
 
