@@ -4,4 +4,3 @@ __nagios_nrpe_server_pid: /var/run/nrpe.pid
 __nagios_nrpe_server_plugins_dir: /opt/csw/libexec/nagios-plugins
 __nagios_nrpe_server_service: svc:/network/cswnrpe:default
 __nagios_nrpe_server_user: nagios
-
