@@ -1,12 +1,8 @@
 ---
-# Update apt-cache for Debian based OS's
-- name: Update apt cache [Debian]
-  apt:
-    update_cache: yes
-
 # Nagios NRPE Server for Debian based OS's
 - name: Install Nagios NRPE Server [Debian]
   apt:
+    update_cache: yes
     name: nagios-nrpe-server
     state: present
 
