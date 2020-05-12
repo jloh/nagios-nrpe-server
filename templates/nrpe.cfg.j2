@@ -114,7 +114,9 @@ allow_bash_command_substitution=0
 # without asking for a password.  If you do this, make sure you don't give
 # random users write access to that directory or its contents!
 
-# command_prefix=/usr/bin/sudo
+{% if nagios_nrpe_server_command_prefix_enable %}
+command_prefix={{ nagios_nrpe_server_command_prefix_path }}
+{% endif %}
 
 # DEBUGGING OPTION
 # This option determines whether or not debugging messages are logged to the
