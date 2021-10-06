@@ -90,7 +90,7 @@ Example Playbook
 ```yaml
 - hosts: servers
   roles:
-     - mooash.nagios-nrpe-server
+     - jloh.nagios_nrpe_server
    vars:
      nagios_nrpe_server_allowed_hosts:
        - 192.168.0.1
