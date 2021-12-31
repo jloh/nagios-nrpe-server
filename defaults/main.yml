@@ -4,3 +4,5 @@ nagios_nrpe_server_port: 5666
 nagios_nrpe_server_allowed_hosts: 127.0.0.1
 nagios_nrpe_server_dont_blame_nrpe: 0
 nagios_nrpe_server_plugins_src_dir: plugins
+nagios_nrpe_server_command_prefix_enable: false
+nagios_nrpe_server_command_prefix_path: /usr/bin/sudo
