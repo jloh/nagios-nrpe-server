@@ -6,7 +6,7 @@
   include_tasks: "variables.yml"
 
 # Install our needed packages for each specific OS
-- include: "packages-{{ ansible_os_family }}.yml"
+- include_tasks: "packages-{{ ansible_os_family }}.yml"
 
 # Create our config
 - name: Create nrpe.cfg from template
