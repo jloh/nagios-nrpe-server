@@ -1,11 +1,11 @@
 ---
 # Variable configuration.
 - name: Include OS-specific variables.
-  include_vars: "{{ ansible_os_family }}.yml"
+  include_vars: '{{ ansible_facts["os_family"] }}.yml'
 
 - name: Include OS-specific variables (RedHat).
-  include_vars: "{{ ansible_os_family }}-{{ ansible_architecture }}.yml"
-  when: ansible_os_family == 'RedHat'
+  include_vars: '{{ ansible_facts["os_family"] }}-{{ ansible_architecture }}.yml'
+  when: ansible_facts["os_family"] == 'RedHat'
 
 - name: Set defaults for OS-specific variables
   set_fact:
