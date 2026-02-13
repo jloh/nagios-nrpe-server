@@ -46,7 +46,7 @@
     owner: root
     group: root
     mode: 0755
-  failed_when: false
+  when: lookup('file', nagios_nrpe_server_plugins_src_dir + '/' + inventory_hostname, errors='ignore') is not none
 
 # Ensure NRPE server is running and will start at boot
 - name: Ensure NRPE server is running
